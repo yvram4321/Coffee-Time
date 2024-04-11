@@ -1,0 +1,832 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body{
+    background: #372A28;
+    height: 100vh;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+/* Home */
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+}
+
+header .navbar{
+    display: flex;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    justify-content: space-between;
+}
+
+.navbar .brand-name{
+    color: white;
+    font-size: 2.1rem;
+    font-weight: 600;
+
+}
+
+.brand-name span{
+    color: burlywood;
+}
+
+.navbar .menu-links{
+    display: flex;
+    gap: 40px;
+    list-style-type: none;
+}
+
+.navbar a{
+    color: white;
+    text-decoration: none;
+}
+
+.navbar a:hover{
+    color: burlywood;
+}
+
+.hero-section{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 0 30px;
+    background: url('Coffee\ Logo\ Black.png');
+    background-position: 90% 50%;
+    background-size: 32%;
+    background-repeat: no-repeat;
+}
+
+.hero-section .content{
+    color: white;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.hero-section .content h1{
+    font-size: 3rem;
+    max-width: 600px;
+}
+
+.hero-section .content p{
+    font-weight: 300;
+    margin-top: 15px;
+    max-width: 600px;
+}
+
+.hero-section .content button{
+    background-color: white;
+    outline: none;
+    border: none;
+    font-size: 1rem;
+    font-weight: 500;
+    margin-top: 38px;
+    padding: 12px 30px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s linear, color 0.1 linear;
+}
+
+.hero-section .content button:hover{
+    color: white;
+    background-color: burlywood;
+}
+
+.hero-section .content button:active{
+    background-color: white;
+    color: black;
+}
+
+#menu-btn{
+    display: none;
+    color: white;
+    cursor: pointer;
+    transition: color 0.05s ease;
+}
+
+#menu-btn:hover{
+    color: burlywood;
+}
+
+#close-menu-btn{
+    display: none;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    cursor: pointer;
+    transition: color 0.05s ease;
+}
+
+#close-menu-btn:hover{
+    color: burlywood;
+}
+
+
+/*          =======Home Media=======         */
+@media screen and (max-width: 991px){
+
+    header {
+        padding: 10px 20px;
+    }
+
+    header.show-mobile-menu::before{
+        content: "";
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        backdrop-filter: blur(3px);
+    }
+
+    #close-menu-btn, #menu-btn{
+        display: block;
+    }
+
+    .navbar .menu-links{
+        position: fixed;
+        left: -260px;
+        top: 0;
+        flex-direction: column;
+        width: 260px;
+        height: 100vh;
+        background-color: white;
+        padding: 70px 40px 0;
+        transition: left 0.15s ease;
+    }
+
+    header.show-mobile-menu .navbar .menu-links {
+        left: 0;
+    }
+
+    .navbar a{
+        color: black;
+    }
+
+    .hero-section{
+        background: url('Coffee\ Logo\ Black.png');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 45%;
+    }
+
+    .hero-section .content{
+        text-align: center;
+    }
+
+    .hero-section .content :is(h1, p){
+        max-width: 100%;
+    }
+
+    .hero-section .content h1{
+        font-size: 2.3rem;
+        line-height: 60px;
+    }
+
+    .hero-section .content button{
+        padding: 9px 18px;
+    }
+
+}
+
+@media (max-width: 320px){
+    .hero-section{
+        padding-right: 0;
+    }
+}
+
+
+
+
+/*          =======Product=======           */
+.act-product-container{
+    /* Product html */
+    overflow-x: hidden;
+    /* Product Body */
+    outline: none;
+    border: none;
+    text-decoration: none;
+    transition: all .2s linear;
+    text-transform: capitalize;
+    /* Prodcut Container*/
+    margin-top: 10%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+}
+
+.act-product-container .title{
+    font-size: 1.5rem;
+    color: white;
+    margin-bottom: 3rem;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.act-product-container .products-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr)); /* 30rem, 1fr */
+    gap: 2rem;
+}
+
+.act-product-container .product{
+    text-align: center;
+    padding: 1.5rem 1rem;
+    background-color: white;
+    box-shadow: 0.5rem 1rem rgba(0, 0, 0,.1);
+    border-radius: 0.7rem;
+    outline: .1rem  solid #ccc;
+    outline-offset: -1.3rem;
+    cursor: pointer;
+}
+
+.act-product-container .product:hover{
+    outline: .2rem solid #222;
+    outline-offset: -1.5rem;
+}
+
+.act-product-container .products-container .product img{
+    height: 15rem;
+}
+
+.act-product-container .product:hover img{
+    transform: scale(.9);
+}
+
+.act-product-container .product h3{
+    padding: .5rem 0;
+    font-size: 2rem;
+    color: #444;
+}
+
+.act-product-container .product:hover h3{
+    color: #111;
+}
+
+.act-product-container .product .price{
+    font-size: 2rem;
+    color: green;
+}
+
+
+/*          =======Product Preview=======         */
+.product-preview{
+    position: fixed;
+    top: 0;
+    left: 0;
+    min-height: 100vh;
+    width: 100%;
+    background: rgba(0, 0, 0, .8);
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.product-preview .preview{
+    display: none;
+    padding: 2rem;
+    text-align: center;
+    background: white;
+    border-radius: 0.7rem;
+    position: relative;
+    margin: 2 rem;
+    width: 30rem;
+}
+
+.product-preview .preview.active{
+    display: inline-block;
+}
+
+.product-preview .preview img{
+    height: 15rem;
+}
+
+.product-preview .preview .fa-times{
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    cursor: pointer;
+    color: #444;
+    font-size: 2.8rem;
+}
+
+.product-preview .preview .fa-times:hover{
+    transform: rotate(90deg);
+}
+
+.product-preview .preview h3{
+    color: #444;
+    padding: 1rem 0;
+    font-size: 2.1rem;
+}
+
+.product-preview .preview .stars i{
+    font-size: 1.2rem;
+    color: yellow;
+}
+
+.product-preview .preview .stars span{
+    color: #999;
+}
+
+.product-preview .preview p{
+    line-height: 1.5;
+    padding: 1re, 0;
+    font-size: 1.2rem;
+    color: #777;
+}
+
+.product-preview .preview .price{
+    padding: 1rem 0;
+    font-size: 1.2rem;
+    color: green;
+
+}
+
+.product-preview .preview .buttons{
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.product-preview .preview .buttons a{
+    flex: 1 1 1rem;
+    padding: 0.5rem;
+    font-size: 1.2rem;
+    color: #444;
+    border: 0.2rem solid #444;
+    border-radius: 0.7rem;
+    text-decoration: none;
+}
+
+.product-preview .preview .buttons a.cancel{
+    background: #444;
+    color: #fff;
+}
+
+.product-preview .preview .buttons a.cancel:hover{
+    background: #111;
+}
+
+.product-preview .preview .buttons a.buy{
+    background: #444;
+    color: #fff;
+}
+
+.product-preview .preview .buttons a.buy:hover{
+    background: #111;
+}
+
+
+/*              =======Products Media=======         */
+
+@media (max-width: 1050px){
+
+
+    .act-product-container{
+        font-size: 55%;
+    }
+}
+
+@media (max-width: 710px){
+    .product-preview .preview img{
+        height: 15rem;
+    }
+
+    .product-preview .preview{
+        display: none;
+        padding: 2rem;
+        text-align: center;
+        background: white;
+        border-radius: 0.7rem;
+        position: relative;
+        margin: 2 rem;
+        width: 28rem;
+    }
+}
+
+@media (max-width: 840px){
+    .product-preview .preview{
+        display: none;
+        padding: 1rem;
+        text-align: center;
+        background: white;
+        border-radius: 0.7rem;
+        position: relative;
+        margin: 2 rem;
+        width: 40rem;
+    }
+
+    .product-preview .preview h3{
+        font-size: 3.5rem;
+    }
+
+    .product-preview .preview .stars i{
+        font-size: 1.5rem;
+    }
+
+    .product-preview .preview .buttons a{
+        padding: 0.5srem;
+        font-size: 1.9  rem;
+        border: 0.2rem solid #444;
+    }
+
+    .product-preview .preview p{
+        line-height: 1.5;
+        padding: 1re, 0;
+        font-size: 1.7rem;
+        color: #777;
+    }
+
+    .product-preview .preview .price{
+        padding: 1rem 0;
+        font-size: 1.8rem;
+        color: green;
+    
+    }
+}
+
+
+@media (max-width: 650px){
+
+    .product-preview .preview img{
+        height: 15rem;
+    }
+
+    .act-product-container .products-container{
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr)); /* 30rem, 1fr */
+        gap: 2rem;
+    }
+
+    .product-preview .preview{
+        display: none;
+        padding: 2rem;
+        text-align: center;
+        background: white;
+        border-radius: 0.7rem;
+        position: relative;
+        margin: 2 rem;
+        width: 30rem;
+    }
+
+    .product-preview .preview .fa-times{
+        font-size: 1.7rem;
+    }
+
+    .product-preview .preview h3{
+        font-size: 2.2rem;
+    }
+
+    .product-preview .preview .stars i{
+        font-size: 1.3rem;
+    }
+
+    .product-preview .preview .buttons a{
+        padding: 0.5srem;
+        font-size: 1.5rem;
+        border: 0.2rem solid #444;
+    }
+
+    .product-preview .preview p{
+        line-height: 1.5;
+        padding: 1re, 0;
+        font-size: 1.5rem;
+        color: #777;
+    }
+}
+
+@media (max-width: 440px){
+    .hero-section{
+        background: url('Coffee\ logo\ black\(no\ text\).png');
+        background-position: 50% 50%;
+        background-size: 50%;
+        background-repeat: no-repeat;
+    }
+
+    .product-preview .preview img{
+        height: 10rem;
+    }
+
+    .act-product-container .products-container .product img{
+        height: 12rem;
+    }
+
+    .act-product-container .products-container{
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); /* 30rem, 1fr */
+        gap: 2rem;
+    }
+
+
+    .act-product-container .product{
+        text-align: center;
+        padding: 2rem 1rem;
+        background-color: white;
+        box-shadow: 0.5rem 1rem rgba(0, 0, 0,.1);
+        border-radius: 0.7rem;
+        outline: .1rem  solid #ccc;
+        outline-offset: -1.3rem;
+        cursor: pointer;
+    }
+
+    .act-product-container .product h3{
+        font-size: 1.6rem;
+    }
+
+    .act-product-container .product .price{
+        font-size: 1.5rem;
+        color: green;
+    }
+
+    .product-preview .preview{
+        display: none;
+        padding: 1rem;
+        text-align: center;
+        background: white;
+        border-radius: 0.7rem;
+        position: relative;
+        margin: 2 rem;
+        width: 22rem;
+    }
+
+    .product-preview .preview .fa-times{
+        font-size: 1.9rem;
+    }
+
+    .product-preview .preview h3{
+        font-size: 1.7rem;
+    }
+
+        .product-preview .preview .stars i{
+        font-size: 1rem;
+    }
+
+    .product-preview .preview .buttons a{
+        padding: 0.5srem;
+        font-size: 1rem;
+        border: 0.2rem solid #444;
+    }
+
+    .product-preview .preview p{
+        line-height: 1.5;
+        padding: 1re, 0;
+        font-size: 1.2rem;
+        color: #777;
+    }
+
+}
+
+@media (max-width: 360px){
+    
+    .hero-section{
+        background: url('Coffee\ logo\ black\(no\ text\).png');
+        background-position: 50% 50%;
+        background-size: 50%;
+        background-repeat: no-repeat;
+    }
+
+    .act-product-container .products-container .product img{
+        height: 10rem;
+    }
+
+    .act-product-container .products-container{
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); /* 30rem, 1fr */
+        gap: 2rem;
+    }
+
+    .act-product-container .product{
+        text-align: center;
+        padding: 2rem 1rem;
+        background-color: white;
+        box-shadow: 0.5rem 1rem rgba(0, 0, 0,.1);
+        border-radius: 0.7rem;
+        outline: .1rem  solid #ccc;
+        outline-offset: -1.3rem;
+        cursor: pointer;
+    }
+
+    .product-preview .preview img{
+        height: 8rem;
+    }
+
+    .act-product-container .product h3{
+        font-size: 0.7rem;
+    }
+
+    .product-preview .preview{
+        display: none;
+        padding: 1rem;
+        text-align: center;
+        background: white;
+        border-radius: 0.7rem;
+        position: relative;
+        margin: 2 rem;
+        width: 18rem;
+    }
+
+    .product-preview .preview .fa-times{
+        font-size: 1.7rem;
+    }
+
+    .product-preview .preview h3{
+        font-size: 1.8rem;
+    }
+
+    .product-preview .preview .stars i{
+        font-size: 1rem;
+    }
+
+    .product-preview .preview .buttons a{
+        padding: 0.5srem;
+        font-size: 1rem;
+        border: 0.2rem solid #444;
+    }
+
+    .product-preview .preview p{
+        line-height: 1.5;
+        padding: 1re, 0;
+        font-size: 1rem;
+        color: #777;
+    }
+
+}
+
+@media (max-width: 320px){
+    .hero-section .content h1{
+        margin: 25px 0;
+    }
+}
+
+
+
+
+/*              =======Footer=======            */
+#footer-container{
+    margin: 4rem 0;
+    box-sizing: border-box;
+    width: 100%;
+    background-color: white;
+    display: grid;
+    justify-content: end;
+    align-content: end;
+    min-height: 50vh;
+    padding: 20px 50px;
+    padding-bottom: 15px;
+}
+
+footer{
+    position: relative;
+    width: 90%;
+    height: auto;
+    padding: 40px 100px;
+    background: white;
+}
+
+footer .container{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    grid-gap: 20px;
+}
+
+footer .container .sec h2{
+    position: relative;
+    color: #333;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+footer .container .sec p{
+    color: #555;
+}
+
+footer .container .sci{
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(4, 50px);
+}
+
+footer .container .sci li{
+    list-style: none;
+}
+
+footer .container .sci li a{
+    display: inline-block;
+    width: 36px;
+    height: 36px;
+    background: #555;
+    border-radius: 5px;
+    display: grid;  
+    align-content: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
+footer .container  .sci li a i{
+    color: white;
+    font-size: 20px;
+}
+
+footer .container .quick-links{
+    position: relative;
+}
+
+footer .container .quick-links ul li{
+    list-style: none;
+}
+
+footer .container .quick-links ul li a{
+    color: #555;
+    text-decoration: none;
+    margin-bottom: 10px;
+    display: inline-block;
+}
+
+footer .container .contact-us .info{
+    position: relative;
+}
+
+footer .container .contact-us .info li{
+    display: grid;
+    grid-template-columns: 30px 1fr;
+    margin-bottom: 16px;
+}
+
+footer .container .contact-us .info li span{
+    color: #555;
+    font-size: 20px;
+
+}
+
+footer .container .contact-us .info li a{
+    color: #555;
+    text-decoration: none;
+}
+
+.copyright{
+    width: 100%;
+    padding: 20px 100px 20px ;
+    text-align: center;
+    color: #555;
+}
+
+.copyright span{
+    color: #111;
+}
+
+
+
+/*          =======Footer Media=======         */
+@media (max-width: 991px){
+    footer{
+        padding: 40px;
+    }
+
+    footer .container{
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 20px
+    }
+
+    .copyright{
+        padding: 20px 40px 30px;
+    }
+
+}
+
+@media (max-width: 768px){
+
+    footer .container{
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-gap: 20px
+    }
+
+}
+
+@media (max-width: 320px){
+    #footer-container{
+        margin: 4rem 2rem;
+    }
+
+    .copyright{
+        padding: 20px 40px 30px;
+        padding-left: 60px;
+    }
+
+}
